@@ -20,23 +20,6 @@
 * {
     margin: 0px;
     padding: 0px;
-}
-
-:root {
-    --navbar-bg-color-responsive: white;
-    --navbar-text-color-responsive: black;
-}
-.login-container {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    height:80vh;
-}
-/* ----------- NAVBAR Styling-------------------------------------- */
-* {
-    margin: 0px;
-    padding: 0px;
     box-sizing: border-box; /* Include padding and border in width calculations */
 }
 
@@ -51,18 +34,29 @@ html, body {
     overflow-x: hidden; /* Hide horizontal overflow */
 }
 
+#quotenow {
+    color: white ;
+    border-radius:25px;
+    border: 1px solid rgb(1, 139, 139);
+}
+#quotenow:hover{
 
-
+    background-color: rgb(1, 139, 139) !important;
+    color:white !important;
+}
 /* ----------- NAVBAR Styling-------------------------------------- */
-
-
-
 /* Ensure navbar height is consistent */
 #Nav {
     height: 100px;
     color: var(--main-text-color);
 }
-
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
 /* Custom styles for link underline effect */
 .navbar-nav .nav-link {
     position: relative;
@@ -178,89 +172,6 @@ html, body {
         padding: 0px 20px;
     }
 }
-
-
-
-/* HomeSlider Component Styles */
-/* .homeSlider {
-    position: relative; 
-    z-index: 1; 
-}
-
-.homeSlider::before {
-    content: ''; 
-    background-color: rgba(0, 0, 0, 0.8);
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2; 
-}
-
-.carousel-inner img {
-    height: 650px; 
-    object-fit: cover; 
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    z-index: 3; 
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: rgba(148, 145, 145, 0.8); 
-    border-radius: 50%;
-}
-
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-    background-color: rgba(148, 145, 145, 1); 
-}
-
-/* HomeText Component Styles */
-
-/* .homeText {
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white; 
-    z-index: 10; 
-}
-
-.homeText h1 {
-    font-size: 3rem; 
-    margin-bottom: 0.5rem;
-}
-
-.homeText p {
-    font-size: 1.25rem; 
-    margin-bottom: 1rem;
-}
-
-.homeText button {
-    padding: 0.75rem 2rem;
-    background-color: transparent;
-    border-radius: 2rem;
-    border: 1px solid rgb(255, 166, 0);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.homeText button:hover {
-    background-color: orange;
-}
-
-.horizontalLine {
-    width: 100px;
-    height: 0;
-    border-top: 6px solid orange; 
-    margin: 1rem auto;
-} */
 
 
 /*----------------------- Home Page Styling ------------------------------------ */
@@ -392,6 +303,40 @@ html, body {
     .Main2-subbox1-smallcircle i {
         font-size: 2rem;
     }
+
+
+/* --------------------------- Card Hover styling */
+
+#cardBelowSlider .card {
+    position: relative;
+    overflow: hidden; /* Ensures the line stays within the card boundaries */
+    /* border-bottom: 1px solid transparent; Default transparent bottom border */
+}
+
+    #cardBelowSlider .card::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px; /* Height of the green line */
+        background-color: var(--main-heading-bgcolor);
+        transform: scaleX(0); /* Initially hidden */
+        transform-origin: left; /* Animation starts from the left */
+        transition: transform 0.3s ease; /* Smooth transition */
+    }
+
+    #cardBelowSlider .card:hover::before {
+        transform: scaleX(1); /* Scale the line to full width on hover */
+    }
+
+    #cardBelowSlider .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Light black shadow */
+        transform: translateY(-20px); /* Move the card upwards */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    }
+
+
 
 /-------------------------------- Media Queries for Responsiveness ----------------------------------/
 /* Small devices (tablets, 768px and below) */
@@ -584,6 +529,13 @@ html, body {
         border-radius: 1rem 1rem 0 0;
     }
 
+
+
+
+
+
+
+
 #HomeServingDownCard1Content {
     height: 70%;
 }
@@ -625,6 +577,109 @@ html, body {
     width: 20px;
     height: 20px;
 }
+
+
+
+
+
+/* Responsive adjustments for 1441px down to 1045px */
+@media screen and (max-width: 1441px) {
+    #HomeServingDownCard {
+        width: 22rem;
+    }
+
+    #HomeServingTop h1 {
+        font-size: 2rem;
+    }
+
+    #HomeServingTop h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    #HomeServingDownCard {
+        width: 15rem;
+    }
+
+    #HomeServingTop h1 {
+        font-size: 1.8rem;
+    }
+
+    #HomeServingTop h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Responsive adjustments for tablets (769px and below) */
+@media screen and (max-width: 769px) {
+    #HomeServingDownCard {
+        width: 18rem;
+    }
+
+    #HomeServingTop h1 {
+        font-size: 1.5rem;
+    }
+
+    #HomeServingTop h3 {
+        font-size: 1.2rem;
+    }
+
+    #HomeServingDownCard1Img {
+        height: 140px;
+    }
+
+    #HomeServingDownCard1ContentIcon {
+        font-size: 50px;
+    }
+}
+/* Responsive adjustments for smaller devices (down to 320px) */
+@media screen and (max-width: 576px) {
+    #HomeServingDownCard {
+        width: 16rem;
+    }
+
+    #HomeServingTop h1 {
+        font-size: 1.3rem;
+    }
+
+    #HomeServingTop h3 {
+        font-size: 1.1rem;
+    }
+
+    #HomeServingDownCard1Img {
+        height: 120px;
+    }
+
+    #HomeServingDownCard1ContentIcon {
+        font-size: 40px;
+    }
+}
+
+/* Further adjustments for very small screens (down to 320px) */
+@media screen and (max-width: 480px) {
+    #HomeServingDownCard {
+        width: 100%;
+    }
+
+    #HomeServingDownCard1ContentIcon {
+        font-size: 35px;
+    }
+
+    #HomeServingTop h1 {
+        font-size: 1rem;
+    }
+
+    #HomeServingTop h3 {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
 
 /* ------------------------------ Review Section Home ------------------------------------*/
 #HomeReviewTop {

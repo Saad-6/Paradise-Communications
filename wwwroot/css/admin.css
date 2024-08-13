@@ -53,9 +53,10 @@ body {
 }
 /* Notification container */
 .notification {
+    margin-top:50px;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
     
     color: white; /* White text color */
     padding: 15px;

@@ -7,8 +7,31 @@
 }
 <div style="margin:50px 10px; overflow:hidden; background-color:#f7f7f7; border:1px solid white; padding: 20px;">
 
+    <form id="medicareFiltersForm">
 
-    @Html.Partial("_Filters")
+        <div style="display: flex; align-items: center; gap: 10px; margin:10px">
+            <div style="display: flex; flex-direction: row;justify-content:space-between width: 100%;">
+                <input class="form-control" placeholder="Search by Phone" id="phone" name="phone" style="margin-right: 10px; width: 70%;" />
+                <button class="custom-button" type="button" id="search">Search</button>
+            </div>
+            <button class="custom-button" type="button" id="clear">Clear Filters</button>
+        </div>
+    </form>
+
+    <div style="display: flex; align-items: center; margin: 0;">
+        <label for="pageSize" style="margin-right: 10px;">Items per page:</label>
+        <select style="max-width:70px; display: inline-block;" id="size" class="form-control">
+            <option value="">@ViewBag.pageSize</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="0">Show All</option>
+        </select>
+    </div>
+
+
+
     <div id="medicare-table">
 
         @Html.Partial("_ContactUsTable", Model)
