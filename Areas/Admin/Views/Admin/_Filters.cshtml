@@ -1,0 +1,37 @@
+﻿<form id="medicareFiltersForm">
+    <div style="display: flex; align-items: center; gap: 10px; margin:10px">
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <input class="form-control" placeholder="Search by Name" id="name" name="name" style="margin-right: 10px; width: 50%;" />
+            <label for="dos" class="form-label">Search by Date of Submission</label>
+            <input class="form-control" type="date" placeholder="Search by D.O.S" id="dos" name="dos" style="width: 50%;" />
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin:10px">
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <input class="form-control" placeholder="Search by Lead Token" id="token" name="token" style="margin-right: 10px; width: 50%;" />
+            <label for="dob" class="form-label">Search by Date of Birth</label>
+            <input class="form-control" type="date" id="dob" placeholder="Search by Date of Birth" name="dob" style="width: 50%;" />
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin:10px">
+        <div style="display: flex; flex-direction: row;justify-content:space-between width: 100%;">
+            <input class="form-control" placeholder="Search by Phone" id="phone" name="phone" style="margin-right: 10px; width: 70%;" />
+            <button class="custom-button" type="button" id="search">Search</button>
+        </div>
+        <button class="custom-button" type="button" id="clear">Clear Filters</button>
+    </div>
+</form>
+
+<div style="display: flex; align-items: center; margin: 0;">
+    <label for="pageSize" style="margin-right: 10px;">Items per page:</label>
+    <select style="max-width:70px; display: inline-block;" id="size" class="form-control">
+        <option value="">@ViewBag.pageSize</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="0">Show All</option>
+    </select>
+</div>

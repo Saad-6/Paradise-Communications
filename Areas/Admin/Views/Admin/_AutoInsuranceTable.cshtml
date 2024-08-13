@@ -1,0 +1,56 @@
+﻿@using Paradise.Areas.Admin.Models
+@using Paradise.Models.FormModels
+@model PaginatedList<AutoInsurance>
+@{
+    string view = "_MedicareTable";
+}
+<nav>
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" href="#" data-page="@(Model.PageIndex - 1)" data-view="@view">Previous</a>
+            </li>
+        }
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(Model.PageIndex == i ? "active" : "")">
+                <a class="page-link" href="#" data-page="@i" data-view="@view">@i</a>
+            </li>
+        }
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" href="#" data-page="@(Model.PageIndex + 1)" data-view="@view">Next</a>
+            </li>
+        }
+    </ul>
+</nav>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Car Model</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>D.O.B</th>
+            <th>Submission Date</th>
+            <th>Lead Token</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var medicare in Model.Items)
+        {
+            <tr>
+                <td>@(medicare.BasicInfo.FirstName + " " + medicare.BasicInfo.LastName)</td>
+                <td>@medicare.CarModel</td>
+                <td>@medicare.BasicInfo.Phone</td>
+                <td>@(medicare.BasicInfo.Address + "," + medicare.BasicInfo.City + "," + medicare.BasicInfo.State)</td>
+                <td>@medicare.BasicInfo.DateOfBirth</td>
+                <td>@medicare.BasicInfo.DateOfSubmission</td>
+                <td>@medicare.LeadToken.Token</td>
+            </tr>
+        }
+    </tbody>
+</table>

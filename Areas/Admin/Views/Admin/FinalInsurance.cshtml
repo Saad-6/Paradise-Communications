@@ -1,0 +1,22 @@
+﻿@using Paradise.Areas.Admin.Models
+@using Paradise.Models.FormModels
+@model PaginatedList<FinalInsurance>
+
+@{
+    ViewData["Title"] = "Final Insurance";
+    ViewBag.Caption = "Final Insurance Forms";
+    string view = "FinalInsurance";
+    int pageSize = ViewBag.pageSize;
+}
+<input hidden id="url" value="@Url.Action("FinalInsuranceFilters","Admin")" />
+
+<div style="margin:50px 10px; overflow:hidden; background-color:#f7f7f7; border:1px solid white; padding: 20px;">
+
+    @Html.Partial("_Filters")
+
+    <div id="partial-view-table">
+
+        @Html.Partial("_FinalInsuranceTable", Model)
+   
+    </div>
+</div>

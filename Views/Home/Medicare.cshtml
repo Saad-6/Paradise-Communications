@@ -1,0 +1,97 @@
+﻿@using Paradise.Models.FormModels;
+@model Medicare
+
+@{
+    ViewData["Title"] = "Meidcare Form";
+}
+<section>
+    <div class="gradient-background d-flex justify-content-center align-items-center">
+        <h1 style="font-size: 60px;">Medicare</h1>
+    </div>
+</section>
+
+<section class="container1" style="background-color: rgba(212,226,217,255); padding: 15px;">
+    <form style="background-color: #ffff; padding: 10px 15px; border-radius: .8rem;" asp-action="HandleMedicareForm" method="post">
+        <h2 class="mb-4 text-center">Medicare</h2>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" required asp-for="@Model.BasicInfo.FirstName" id="firstname" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" required asp-for="@Model.BasicInfo.LastName" id="lastname" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control"  asp-for="@Model.BasicInfo.Email" id="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Phone</label>
+                <input type="tel" class="form-control" required asp-for="@Model.BasicInfo.Phone" id="phone" placeholder="Phone">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" required asp-for="@Model.BasicInfo.DateOfBirth" id="dob">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <input type="text" class="form-control"  asp-for="@Model.BasicInfo.Address" id="address" placeholder="Address">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="state">State</label>
+                <input type="text" class="form-control" required asp-for="@Model.BasicInfo.State" id="state" placeholder="State">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="state">City</label>
+                <input type="text" class="form-control"  asp-for="@Model.BasicInfo.City" id="city" placeholder="City">
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" class="form-control" required  asp-for="@Model.BasicInfo.ZipCode" id="zipcode" placeholder="Zip Code">
+            </div>
+        </div>
+        @if (ViewBag.ShowLeadToken)
+        {
+            <div class="form-row">
+                <label for="token"><b>Lead Token:</b></label>
+                <input id="token" class="form-control" value="@Model.LeadToken.Token" readonly />
+            </div>
+
+            <div class="text-center" style="display: flex; justify-content: space-around; align-items: center;">
+                <div class="text-success">
+                    Form Submitted Successfully!
+                    <a asp-action="Index">Go to Home</a>
+                </div>
+                <button disabled class="btn btn-secondary" id="button1">Submitted</button>
+                <a  asp-action="Medicare">Submit Another Form</a>
+            </div>
+        }
+        else
+        {
+            @Html.Partial("_Disclaimer", "Medicare")
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" id="button1">Submit</button>
+            </div>
+        }
+    </form>
+</section>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var showLeadToken = @Html.Raw(Json.Serialize(ViewBag.ShowLeadToken));
+            if (showLeadToken) {
+                $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+            }
+        });
+    </script>
+}

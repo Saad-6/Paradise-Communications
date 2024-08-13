@@ -1,0 +1,25 @@
+﻿@using Paradise.Areas.Admin.Models
+@using Paradise.Models.FormModels
+@model PaginatedList<ACA>
+
+@{
+    ViewData["Title"] = "ACA";
+    ViewBag.Caption ="ACA Forms";
+    string view = "ACA";
+    int pageSize = ViewBag.pageSize;
+}
+ <input id="url" value="@Url.Action("ACAFilters","Admin")" />
+
+<div style="margin:50px 10px; overflow:hidden; background-color:#f7f7f7; border:1px solid white; padding: 20px;">
+ 
+    @Html.Partial("_Filters")
+    @Html.Partial("_Loader")
+
+    <div id="partial-view-table">
+
+        @Html.Partial("_ACATable", Model)
+  
+    </div>
+
+</div>
+

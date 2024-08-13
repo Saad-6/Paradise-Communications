@@ -1,0 +1,23 @@
+﻿@model LoginModel
+@{
+    Layout = "_Layout";
+}
+<div class="login-container">
+    <h2 class="text-center">Admin Login</h2>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form  asp-controller="Account" asp-action="Login" method="post">
+        <div class="form-group">
+            <label for="Email">Email Address</label>
+            <input type="email" asp-for="Email" class="form-control" id="Email" placeholder="Enter your email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" asp-for="Password" class="form-control" id="Password" placeholder="Enter your password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group btn-container text-center">
+            <button type="submit" id="button1" class="btn btn-success loginbtn">Login</button>
+        </div>
+    </form>
+</div>

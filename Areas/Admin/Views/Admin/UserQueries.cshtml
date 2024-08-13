@@ -1,0 +1,69 @@
+﻿@using Paradise.Areas.Admin.Models
+@using Paradise.Models.FormModels
+@model PaginatedList<ContactUs>
+@{
+    ViewData["Title"] = "Contact Us";
+    ViewBag.Caption = "Contact Us Forms";
+}
+<div style="margin:50px 10px; overflow:hidden; background-color:#f7f7f7; border:1px solid white; padding: 20px;">
+
+
+    @Html.Partial("_Filters")
+    <div id="medicare-table">
+
+        @Html.Partial("_ContactUsTable", Model)
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).on('click', '.page-link, #filterButton,#search', function (e) {
+            e.preventDefault();
+            const page = $(this).data('page') || 1; 
+            callAjax(page);
+        });
+        $(document).on('click', '#clear', function (e) {
+            e.preventDefault();
+            $('#name').val('');
+            $('#email').val('');
+            $('#phone').val('');
+            $('#size').val('');
+            callAjax(1);
+        });
+        $('#size').change(function () {
+            callAjax();
+
+        });
+
+        function callAjax(page) {
+
+            const name = $('#name').val();
+            const email = $('#email').val();
+            const dob = $('#dob').val();
+            const phone = $('#phone').val();
+            const token = $('#token').val();
+            const size = $('#size').val();
+
+            $.ajax({
+                url: '@Url.Action("ContactFilters", "Admin")',
+                type: 'POST',
+                data: {
+                    name,
+                    email,
+                    phone,
+                    dateTime: dob,
+                    token,
+                    pageNumber: page,
+                    pageSize: size,
+
+                },
+                success: function (response) {
+                    $('#medicare-table').html(response);
+                },
+                error: function (xhr) {
+                    console.error("Error loading page: ", xhr);
+                }
+            });
+        }
+    </script>
+
+}

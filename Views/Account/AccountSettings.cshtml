@@ -1,0 +1,136 @@
+﻿@using Paradise.Areas.Admin.Models
+@model AccountSettingsViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Caption = "Account Settings";
+}
+<div class="account-settings-container">
+    <div id="notification" class="notification"></div>
+
+    <div class="row">
+        <!-- Change Password Section -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Change Password</h4>
+                    <form id="changePasswordForm">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" name="currentPassword" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" name="newPassword" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmNewPassword">Confirm New Password</label>
+                            <input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form-control" required>
+                        </div>
+                        <button type="submit" id="changePassword" class="btn btn-secondary btn-block">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Admin User Section -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Admin User</h4>
+                    <form id="addAdminForm">
+                        <div class="form-group">
+                            <label for="newAdminEmail">Email</label>
+                            <input type="email" id="newAdminEmail" name="newAdminEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newAdminPassword">Password</label>
+                            <input type="password" id="newAdminPassword" name="newAdminPassword" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmAdminPassword">Confirm Password</label>
+                            <input type="password" id="confirmAdminPassword" name="confirmAdminPassword" class="form-control" required>
+                        </div>
+                        <button type="submit"id="addAdmin" class="btn btn-dark  btn-block">Add Admin User</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Existing Admin Users Section -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Existing Admin Users</h4>
+                    <ul class="list-group">
+                        @foreach (var admin in Model.AdminUsers)
+                        {
+                            <li class="list-group-item">@admin.Email</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+   
+    <script>
+        $(document).ready(function () {
+       
+            // Change Password AJAX Request
+            $('#changePasswordForm').submit(function (e) {
+                e.preventDefault();
+                let formData = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("ChangePassword", "Account")',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        showNotification('Your settings have been saved successfully.',"bg-success");
+                        $('#changePasswordForm')[0].reset();
+                    },
+                    error: function (response) {
+                        showNotification(response.responseText, "bg-danger");
+                    }
+                });
+            });
+            function showNotification(message,bgclass) {
+                var notification = document.getElementById('notification');
+                notification.innerText = message;
+                notification.classList.remove('bg-success', 'bg-danger');
+                notification.classList.add(bgclass);
+                notification.classList.add('show');
+
+                // Hide the notification after 7 seconds
+                setTimeout(function () {
+                    notification.classList.remove('show');
+                }, 7000); // 7000 milliseconds = 7 seconds
+            }
+
+           
+
+            // Add Admin User AJAX Request
+            $('#addAdminForm').submit(function (e) {
+                e.preventDefault();
+                let formData = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("AddAdminUser", "Account")',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        showNotification('Your settings have been saved successfully.',"bg-success");
+                        $('#addAdminForm')[0].reset();
+                    },
+                    error: function (response) {
+                        console.log(response)
+                        showNotification(response.responseText, "bg-danger");
+                    }
+                });
+            });
+        });
+    </script>
+}

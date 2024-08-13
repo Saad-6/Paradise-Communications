@@ -1,0 +1,1247 @@
+.loginbtn {
+   width:350px !important;
+}
+.account-settings-container{
+    margin-top:50px;
+}
+
+#Email, #Password {
+    width: 350px;
+}
+@media screen and (max-width: 650px) {
+    .loginbtn {
+        width: 250px !important;
+    }
+
+    #Email, #Password {
+        width: 250px;
+    }
+}
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --navbar-bg-color-responsive: white;
+    --navbar-text-color-responsive: black;
+}
+.login-container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:80vh;
+}
+/* ----------- NAVBAR Styling-------------------------------------- */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /* Include padding and border in width calculations */
+}
+
+:root {
+    --main-text-color: white;
+    --main-heading-color: rgb(1, 139, 139);
+    --main-heading-bgcolor: rgb(1, 139, 139);
+}
+
+
+html, body {
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+
+
+/* ----------- NAVBAR Styling-------------------------------------- */
+
+
+
+/* Ensure navbar height is consistent */
+#Nav {
+    height: 100px;
+    color: var(--main-text-color);
+}
+
+/* Custom styles for link underline effect */
+.navbar-nav .nav-link {
+    position: relative;
+    color: var(--main-text-color); /* Default text color */
+    transition: color 0.3s linear;
+}
+
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background-color: white;
+        transition: width 0.3s linear;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+.navbar-nav .nav-link {
+    color: var(--main-text-color) !important;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: rgb(211, 207, 207) !important;
+    }
+
+
+
+
+/* Custom background and text color for navbar */
+.bg-green {
+    background-color: rgb(1, 139, 139);
+}
+
+.text-white {
+    color: rgb(211, 207, 207);
+}
+
+.navbar .nav-link:hover {
+    color: rgb(211, 207, 207);
+}
+
+.navbar-brand {
+    color: rgb(211, 207, 207);
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+}
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon span {
+        background-color: black !important;
+    }
+
+#Nav {
+    font-size: 18px;
+    font-weight: bolder;
+    color: var(--main-text-color);
+}
+
+
+.nav-link {
+    transition: letter-spacing 6s ease-in;
+}
+
+    .nav-link:hover {
+        letter-spacing: 1px;
+    }
+
+
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    #Nav {
+        background-color: rgb(1, 139, 139);
+        height: auto;
+        width: auto;
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-brand {
+        color: var(--main-text-color) !important;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 50%; /* Full width underline on hover */
+    }
+}
+
+@media (min-width: 992px) {
+    #Nav {
+        background-color: rgb(1, 139, 139);
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-brand {
+        color: var(--main-text-color);
+    }
+}
+
+@media screen and (max-width: 426px) {
+    nav {
+        padding: 0px 20px;
+    }
+}
+
+
+
+/* HomeSlider Component Styles */
+/* .homeSlider {
+    position: relative; 
+    z-index: 1; 
+}
+
+.homeSlider::before {
+    content: ''; 
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+}
+
+.carousel-inner img {
+    height: 650px; 
+    object-fit: cover; 
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 3; 
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(148, 145, 145, 0.8); 
+    border-radius: 50%;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(148, 145, 145, 1); 
+}
+
+/* HomeText Component Styles */
+
+/* .homeText {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; 
+    z-index: 10; 
+}
+
+.homeText h1 {
+    font-size: 3rem; 
+    margin-bottom: 0.5rem;
+}
+
+.homeText p {
+    font-size: 1.25rem; 
+    margin-bottom: 1rem;
+}
+
+.homeText button {
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    border-radius: 2rem;
+    border: 1px solid rgb(255, 166, 0);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.homeText button:hover {
+    background-color: orange;
+}
+
+.horizontalLine {
+    width: 100px;
+    height: 0;
+    border-top: 6px solid orange; 
+    margin: 1rem auto;
+} */
+
+
+/*----------------------- Home Page Styling ------------------------------------ */
+
+/* HomeText Component Styles */
+.homeText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--main-text-color);
+    z-index: 10;
+}
+
+    .homeText h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .homeText p {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .homeText button {
+        padding: 0.75rem 2rem;
+        background-color: transparent;
+        border-radius: 2rem;
+        border: 1px solid var(--main-heading-color);
+        color: var(--main-text-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .homeText button:hover {
+            background-color: var(--main-heading-bgcolor);
+        }
+
+.horizontalLineSlider {
+    width: 100px;
+    height: 0;
+    border-top: 6px solid var(--main-heading-color);
+    margin: 1rem auto;
+}
+
+/* Slider Component Styles */
+.homeSlider {
+    position: relative;
+    z-index: 1;
+    height: 600px; /* Increase the height of the slider container */
+}
+
+    .homeSlider::before {
+        content: "";
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+.carousel-inner img {
+    height: 600px;
+    object-fit: cover;
+}
+
+
+
+
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 3 !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(148, 145, 145, 0.8) !important;
+    border-radius: 50% !important;
+}
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+        background-color: rgba(148, 145, 145, 1) !important;
+    }
+
+
+
+
+/-------------------------------- CardBelow Slider Styling ----------------------------------/
+
+.cardBelowSlider {
+    margin-top: 30px;
+}
+
+/* Set the card width and make sure it's responsive */
+.cardBelowSlider .card {
+    width: 100%;
+    max-width: 400px; /* Adjust max-width for medium to large screens */
+    margin: 0 15px; /* Add some horizontal margin between cards */
+}
+
+/* Style the title and text */
+.cardBelowSlider h2 {
+    color: var(--main-heading-color);
+    font-weight: bolder;
+    font-size: 1.5rem; /* Responsive font size */
+}
+
+.cardBelowSlider p {
+    color: #3a4268;
+    font-size: 1rem; /* Responsive font size */
+}
+
+/* Adjust circle size and icon alignment */
+.Main2-subbox1-smallcircle {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+    /* Make sure the icon is responsive */
+    .Main2-subbox1-smallcircle i {
+        font-size: 2rem;
+    }
+
+/-------------------------------- Media Queries for Responsiveness ----------------------------------/
+/* Small devices (tablets, 768px and below) */
+@media (max-width: 768px) {
+    .cardBelowSlider .card
+
+{
+    max-width: 90%; /* Allow cards to take up most of the screen */
+}
+
+.cardBelowSlider h2 {
+    font-size: 1.3rem;
+}
+
+.cardBelowSlider p {
+    font-size: 0.9rem;
+}
+
+.Main2-subbox1-smallcircle {
+    width: 60px;
+    height: 60px;
+}
+
+    .Main2-subbox1-smallcircle i {
+        font-size: 1.5rem;
+    }
+
+}
+
+/* Extra small devices (phones, 576px and below) */
+@media (max-width: 576px) {
+    .cardBelowSlider .card {
+        max-width: 100%; /* Full width on small devices */
+        margin-bottom: 20px; /* Add more space between cards */
+    }
+
+    .cardBelowSlider h2 {
+        font-size: 1.1rem;
+    }
+
+    .cardBelowSlider p {
+        font-size: 0.8rem;
+    }
+
+    .Main2-subbox1-smallcircle {
+        width: 50px;
+        height: 50px;
+    }
+
+        .Main2-subbox1-smallcircle i {
+            font-size: 1.2rem;
+        }
+}
+
+
+/* ------------------------------------  homeAboutus Section Styling ----------------- */
+#homeAboutus {
+    min-height: 300px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+#homeAboutBigCon {
+    padding-top: 50px;
+}
+
+#homeAboutCardLeft img {
+    width: 100%;
+    height: auto;
+}
+
+#homeAboutCardRight {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+    #homeAboutCardRight h3 {
+        color: #7aa58a;
+        font-weight: bolder;
+        margin-right: 20px;
+    }
+
+    #homeAboutCardRight h1 {
+        color: var(--main-heading-color);
+        font-weight: bolder
+    }
+
+#homeAboutCardRightP1 {
+    margin-top: 20px;
+    color: #3a4268;
+    font-weight: bolder
+}
+
+#homeAboutCardRightP2 {
+    margin-top: 10px;
+    color: #3a4268
+}
+
+#homeAboutCardRightButton {
+    background-color: var(--main-heading-bgcolor);
+    color: var(--main-text-color);
+    margin-top: 30px
+}
+/* Responsive adjustments */
+@media (min-width: 576px) {
+    #homeAboutus {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    #homeAboutus {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    #homeAboutus {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #homeAboutus {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+
+/* ---------------------------------------- HomeServering-------------------- */
+
+#HomeServing h1 {
+    color: var(--main-heading-color);
+}
+
+#HomeServing h2 {
+    color: var(--main-heading-color);
+}
+
+#HomeServing p {
+    color: var(--main-heading-color);
+}
+
+
+#HomeServing {
+    height: 100%
+}
+
+#HomeServingTop {
+    height: 50%;
+    background-color: #f3f4f8;
+    padding-top: 40px
+}
+
+    #HomeServingTop h3 {
+        color: #7aa58a;
+        font-weight: bolder;
+        margin: 0px 20px
+    }
+
+    #HomeServingTop h1 {
+        color: var(--main-heading-color);
+    }
+
+#HomeServingDown {
+    height: 50%;
+    background-color: white
+}
+
+
+
+#HomeServingDownCard {
+    width: 25rem;
+    height: 100%
+}
+
+#HomeServingDownCard1Img {
+    height: 160px;
+}
+
+    #HomeServingDownCard1Img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+#HomeServingDownCard1Content {
+    height: 70%;
+}
+
+#HomeServingDownCard1ContentCircle {
+    width: 50px;
+    height: 50px;
+}
+
+#HomeServingDownCard1ContentIcon {
+    color: var(--main-heading-color);
+    font-size: 60px;
+}
+
+#HomeServingDownCard1ContentRight h2 {
+    color: var(--main-heading-color);
+    font-weight: bolder
+}
+
+#HomeServingDownCard1ContentRight p {
+    color: #3a4268
+}
+
+#HomeServingDownCard1ContentRightSpan p {
+    width: 20px;
+    height: 20px;
+    background-color: var(--main-heading-bgcolor);
+    border-radius: 50%;
+}
+
+#HomeServingDownCard1ContentRightSpan i {
+    font-weight: bolder;
+    color: var(--main-text-color);
+}
+
+
+#ReadMeIcon {
+    background-color: var(--main-heading-bgcolor);
+    width: 20px;
+    height: 20px;
+}
+
+/* ------------------------------ Review Section Home ------------------------------------*/
+#HomeReviewTop {
+    padding: 0px 150px;
+}
+
+    #HomeReviewTop h3 {
+        color: #7aa58a;
+        font-weight: bolder;
+        margin: 0px 20px
+    }
+
+    #HomeReviewTop h1 {
+        color: var(--main-heading-color);
+    }
+
+
+#HomeReviewDown {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+#HomeReviewDownBigCard {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
+
+@media screen and (max-width: 769px) {
+    #HomeReviewTop {
+        padding: 0px 20px;
+    }
+
+    #HomeReviewTop {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+
+
+/* --------------------------------- HomeLatest ------------------------------------------ */
+#HomeLatest h1 {
+    color: var(--main-heading-color);
+}
+
+#HomeLatest h2 {
+    color: var(--main-heading-color);
+}
+
+#HomeLatest p {
+    color: var(--main-heading-color);
+}
+
+/* General Styles */
+.card-img-top {
+    height: 270px;
+    object-fit: cover;
+}
+
+.card-body {
+    height: 70%;
+}
+
+.info-container {
+    margin-bottom: 20px;
+}
+
+.horizontalLineLatest {
+    width: 50px;
+    height: 2px;
+    background-color: var(--main-heading-bgcolor);
+    margin: 0 auto;
+}
+
+.rounded-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--main-heading-bgcolor);
+    border-radius: 50%;
+}
+
+.bg-success {
+    background-color: var(--main-heading-bgcolor);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .row-cols-md-3 .col {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        padding: 0 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 130px;
+    }
+}
+
+
+.horizontalLine {
+    width: 50px;
+    height: 0;
+    color: var(--main-heading-color);
+    border-top: 6px solid var(--main-heading-color);
+    margin: 1rem auto;
+}
+
+.horizontalLineLatest {
+    width: 100px;
+    height: 0;
+    color: var(--main-heading-color);
+    border-top: 6px solid var(--main-heading-color);
+    margin: 1rem auto;
+}
+
+
+
+
+
+#button1 {
+    background-color: rgb(1, 139, 139);
+    color: var(--main-text-color);
+    font-size: 25px;
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+    #button1:hover {
+        box-shadow: 0 3px 33px 0 rgb(14, 201, 201);
+        /* inset,0 3px 35px 0 aqua; */
+    }
+
+
+
+
+.gradient-background {
+    height: 200px; /* Set the height or any desired size for the div */
+    width: 100%;
+    color: var(--main-text-color);
+    background: linear-gradient(to right, rgba(51, 92, 75, 1), rgba(65, 122, 130, 1), rgba(82, 156, 191, 1), rgba(94, 180, 236, 1));
+}
+
+
+
+
+.Main2-subbox1 {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Main2-subbox1-smallcircle {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    background-color: #F0F1F3;
+    color: var(--main-heading-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+}
+
+.Main2-subbox1 i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+/* .Main2-subbox1-smallcircle:hover 
+{
+   background-color: rgb(205, 208, 32);
+   color:white;
+} */
+
+
+.info-container {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+}
+
+.info-text {
+    margin-right: 10px; /* Space between text and line */
+}
+
+/* .horizontalLine {
+  /* width: 100px; Adjust the width of the line as needed */
+/* height: 2px; Line thickness */
+/* background-color: #000; Line color */
+/* } */
+
+
+
+
+
+.nav-link {
+    transition: letter-spacing 6s ease-in;
+}
+
+    .nav-link:hover {
+        letter-spacing: 1px;
+    }
+
+#ContactTop {
+    position: relative;
+    object-fit: cover;
+    background-image: url('https://www.citizencare.us/wp-content/uploads/2022/03/pexels-rodnae-productions-7821683.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust the height as needed */
+    color: var(--main-text-color);
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+    #ContactTop::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(3, 0, 20, 0.67); /* Black overlay with 50% opacity */
+        z-index: 2;
+    }
+
+    #ContactTop .content {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+    }
+
+    #ContactTop h1 {
+        font-size: 3rem;
+    }
+
+    #ContactTop span {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.2rem;
+    }
+
+    #ContactTop .nav-link {
+        color: var(--main-text-color);
+        text-decoration: none;
+    }
+
+        #ContactTop .nav-link:hover {
+            text-decoration: underline;
+        }
+
+.content h1 {
+    font-size: 100px !important;
+}
+
+@media screen and (max-width: 700px) {
+    .content h1 {
+        font-size: 20px !important;
+    }
+}
+
+#contactHome:hover {
+    cursor: pointer;
+    color: var(--main-heading-color);
+    text-decoration: none !important;
+}
+
+#contactContact:hover {
+    cursor: auto;
+    text-decoration: none !important;
+}
+
+.background-section {
+    height: 70vh;
+    background-color: rgba(0,27,82,255);
+    /* background-image: url('Images/contact3.PNG'); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .background-section .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+@media (max-width: 576px) {
+    .background-section {
+        height: auto;
+    }
+}
+
+#Footer {
+    background-color: rgba(5,17,53,255);
+}
+
+
+.clientTestimonials {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.clientTestimonialsImg {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+#buttonNextPre {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: var(--main-heading-color);
+    font-size: 30px;
+    border: 1px solid var(--main-heading-color);
+}
+
+    #buttonNextPre:hover {
+        background-color: var(--main-heading-bgcolor);
+        color: var(--main-text-color);
+    }
+
+#HomeReviewDownBigCardSlide {
+    margin: 0px 100px;
+    overflow: hidden
+}
+
+    #HomeReviewDownBigCardSlide .card {
+        width: 24rem;
+    }
+
+    #HomeReviewDownBigCardSlide .card-text {
+        line-height: 26px;
+        font-size: 15px;
+        padding: 0px 10px;
+    }
+
+@media screen and (max-width :769px) {
+    #buttonNextPre {
+        width: 50px;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    #HomeReviewDownBigCardSlide {
+        margin: 0px 0px;
+    }
+}
+
+@media screen and (max-width :376px) {
+    #HomeReviewDownBigCardSlide .card {
+        width: 270px;
+    }
+}
+
+@media screen and (max-width :376px) {
+    #HomeReviewDownBigCardSlide {
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px 0px;
+    }
+}
+
+#zoomImg {
+    overflow: hidden;
+    position: relative;
+}
+
+    #zoomImg img {
+        width: 100%; /* Ensure the image covers the container */
+        height: 100%; /* Ensure the image covers the container */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+        object-fit: cover; /* Ensure the image maintains its aspect ratio and covers the div */
+        transform-origin: center; /* Scale from the center */
+    }
+
+        #zoomImg img:hover {
+            transform: scale(1.3);
+        }
+
+
+/* ----------------------------------- About Section---------------- */
+
+
+
+.AboutH1 {
+    color: var(--main-text-color);
+}
+
+#AboutUsH1 {
+    color: var(--main-heading-color);
+    font-weight: bolder
+}
+
+#AboutUsP {
+    color: #3a4268
+}
+/* CSS for image containers */
+.image-container {
+    position: relative;
+    width: 100%;
+    /* max-width: 300px; */
+    height: 350px;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    .image-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: var(--bg-image); /* Use custom property for background image */
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+
+
+
+
+    .image-container:hover::before {
+        opacity: 1; /* Show image on hover */
+    }
+
+    .image-container:hover {
+        background-color: white; /* Background color on hover */
+        color: var(--main-text-color); /* Text color on hover */
+    }
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: black;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+
+
+
+.image-container:hover .content {
+    color: var(--main-text-color); /* Text color on hover */
+}
+
+
+
+
+.read-more {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .read-more i {
+    margin-left: 10px;
+    margin-top: 10px;
+} */
+
+/* -------------------- About BackgroundImageHide -------- */
+
+
+
+/* --------------------- About Flip Styling */
+
+
+.flip-box {
+    background-color: transparent;
+    width: 420px;
+    height: 250px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+}
+
+.flip-box-front img {
+    width: 420px;
+    height: 250px
+}
+
+
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-box-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-box-back {
+    background-color: #555;
+    color: var(--main-text-color);
+    transform: rotateY(180deg);
+}
+
+
+
+
+#AboutOurMission h1 {
+    color: var(--main-heading-color);
+    font-weight: bold;
+}
+
+#AboutOurMission h5 {
+    color: var(--main-heading-color);
+    font-weight: bolder;
+}
+
+#AboutOurMission p {
+    color: #3a4268;
+}
+
+
+#AboutServiceIcon {
+    background-color: var(--main-heading-color);
+    width: 20px;
+    height: 20px;
+}
+
+#CountingIcon {
+    color: var(--main-heading-color);
+}
+
+#CountingIconP {
+    color: var(--main-heading-color);
+}
+
+
+#HomeServingDownBig {
+    padding: 0px 130px;
+}
+
+@media screen and (max-width :769px) {
+    #HomeServingDownBig {
+        padding: 0px 0px;
+    }
+
+    #ServiceCard {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* ------------------- Contact Page Styling */
+#contactH1 {
+    color: var(--main-text-color);
+}
+
+/*---------------------------- Contact Form --------------------- */
+
+
+@media screen and (max-width :1441px) {
+    #ContactFormPage {
+        height: auto;
+    }
+}}

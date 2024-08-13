@@ -1,0 +1,21 @@
+﻿@using Paradise.Areas.Admin.Models
+@using Paradise.Models.FormModels
+@model PaginatedList<MVA>
+
+@{
+    ViewData["Title"] = "MVA";
+    ViewBag.Caption = "MVA Forms";
+    string view = "MVA";
+    int pageSize = ViewBag.pageSize;
+}
+<input hidden id="url" value="@Url.Action("MVAFilters","Admin")" />
+<div style="margin:50px 10px; overflow:hidden; background-color:#f7f7f7; border:1px solid white; padding: 20px;">
+
+    @Html.Partial("_Filters")
+
+    <div id="partial-view-table">
+
+        @Html.Partial("_MVATable", Model)
+
+    </div>
+</div>
