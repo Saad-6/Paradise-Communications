@@ -2,10 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Paradise.Data;
 using Paradise.Models;
-using Paradise.Models.FormModels;
-using Paradise.Services;
 using Paradise.Utilities;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,25 +10,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-//builder.Services.AddIdentity<SuperUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppDbContext>();
-builder.Services.AddScoped<IFormRepository<Medicare>,FormRepository<Medicare>>();
 
 builder.Services.AddIdentity<SuperUser, IdentityRole>(options =>
 {
-
     options.SignIn.RequireConfirmedAccount = false;
-    options.Lockout.MaxFailedAccessAttempts = 5; // Lockout after 5 failed attempts
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15); // Lockout period
+    options.Lockout.MaxFailedAccessAttempts = 5; 
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15); 
 }).AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Account/Login"; // Redirect to this path if not authenticated
-    options.AccessDeniedPath = "/Account/AccessDenied"; // Redirect here if not authorized
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Cookie expiration time
+    options.LoginPath = "/Account/Login"; 
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30); 
     options.SlidingExpiration = true;
 });
-
 
 builder.Services.Configure<IdentityOptions>(options =>
 {

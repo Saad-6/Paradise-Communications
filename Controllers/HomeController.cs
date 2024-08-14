@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Paradise.Data;
 using Paradise.Models;
 using Paradise.Models.FormModels;
 using Paradise.Services;
-using System.Diagnostics;
 
 namespace Paradise.Controllers
 {
@@ -17,7 +15,6 @@ namespace Paradise.Controllers
             _tokenService = new LeadTokenService();
             _context = context;
         }
-
         public IActionResult Index()
         {
             return View();

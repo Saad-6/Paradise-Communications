@@ -11,7 +11,6 @@ namespace Paradise.Controllers
     {
         private readonly SignInManager<SuperUser> _signInManager;
         private readonly UserManager<SuperUser> _userManager;
-       // int count = 5;
         public AccountController(SignInManager<SuperUser> signInManager,UserManager<SuperUser> userManager)
         {
             _signInManager = signInManager;
@@ -25,7 +24,8 @@ namespace Paradise.Controllers
         }
         public IActionResult AccessDenied()
         {
-            return View();
+            return RedirectToAction(nameof(HomeController.NotFound));
+ 
         }
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)

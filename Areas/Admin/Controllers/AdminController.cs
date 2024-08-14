@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Paradise.Areas.Admin.Models;
@@ -32,8 +31,6 @@ namespace Paradise.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-           
-            
             return View();
         }
         //public IActionResult ViewInsurance(string view)
@@ -84,7 +81,6 @@ namespace Paradise.Areas.Admin.Controllers
 
         //    return View(view, paginatedList);
         //}
-
 
 
         public IActionResult Medicare()
@@ -308,8 +304,6 @@ namespace Paradise.Areas.Admin.Controllers
                                              EF.Property<DateTime>(EF.Property<object>(m, "BasicInfo"), "DateOfSubmission"),
                                              dos) == 0);
             }
-
-
             if (!string.IsNullOrEmpty(phone))
             {
                 query = query.Where(m => EF.Property<string>(EF.Property<object>(m, "BasicInfo"), "Phone").Contains(phone));
