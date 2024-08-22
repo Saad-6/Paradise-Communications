@@ -29,7 +29,7 @@ namespace Paradise.Utilities
                 }
 
                 // Check if the Admin user exists, if not, create it
-                var adminUser = await userManager.FindByEmailAsync("superuser@paradisecommunications.com");
+                var adminUser = await userManager.FindByEmailAsync("admin@paradisecommunications.co");
                 if (adminUser == null)
                 {
                     adminUser = new SuperUser
