@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Paradise Communications";
 }
 
 <!---------------------------  Slider  Section --------------------------->
@@ -217,10 +217,7 @@
                                         <h2 class="card-title fw-bold" data-aos="fade-left">Assistance</h2>
                                         <p class="card-text" data-aos="fade-left"> Our team works closely with you to understand your unique situation .</p>
                                         <span class="d-flex align-items-center" data-aos="fade-left">
-                                            <div class="rounded-circle d-flex justify-content-center align-items-center  text-white" id="ReadMeIcon">
-                                                <i class="fas fa-angle-right"></i>
-                                            </div>
-                                            &nbsp; 
+                                            
                                         </span>
                                     </div>
                                 </div>
@@ -248,10 +245,7 @@
                                         <h2 class="card-title fw-bold" data-aos="fade-left">Health Wellness</h2>
                                         <p class="card-text" data-aos="fade-left">Access a wide range of health services, from primary care</p>
                                         <span class="d-flex align-items-center" data-aos="fade-left">
-                                            <div class="rounded-circle d-flex justify-content-center align-items-center  text-white" id="ReadMeIcon">
-                                                <i class="fas fa-angle-right"></i>
-                                            </div>
-                                            &nbsp; 
+                                             
                                         </span>
                                     </div>
                                 </div>
@@ -278,10 +272,7 @@
                                         <h2 class="card-title fw-bold" data-aos="fade-left">Strengthening</h2>
                                         <p class="card-text" data-aos="fade-left">Participate in local events and initiatives that bring community</p>
                                         <span class="d-flex align-items-center" data-aos="fade-left">
-                                            <div class="rounded-circle d-flex justify-content-center align-items-center  text-white" id="ReadMeIcon">
-                                                <i class="fas fa-angle-right"></i>
-                                            </div>
-                                            &nbsp; 
+                                            
                                         </span>
                                     </div>
                                 </div>
@@ -356,7 +347,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Emily Thompson</p>
+                                        <p>David Thompson</p>
                                         <span class="d-flex">
                                             <i class="fa fa-star text-warning"></i>
                                             <i class="fa fa-star text-warning"></i>
@@ -382,7 +373,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <p>
-                                            David Martinez
+                                            Emily Martinez
                                         </p>
                                         <span class="d-flex">
                                             <i class="fas fa-star text-warning"></i>
@@ -467,7 +458,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Sophie Nguyen</p>
+                                        <p>Mark Hale</p>
                                         <span class="d-flex">
                                             <i class="fas fa-star text-warning"></i>
                                             <i class="fas fa-star text-warning"></i>
@@ -492,7 +483,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Linda Patel</p>
+                                        <p>Justin B. Murphy</p>
                                         <span class="d-flex">
                                             <i class="fas fa-star text-warning"></i>
                                             <i class="fas fa-star text-warning"></i>
@@ -550,7 +541,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Sophia Green</p>
+                                        <p>Kevin Green</p>
                                         <span class="d-flex">
                                             <i class="fas fa-star text-warning"></i>
                                             <i class="fas fa-star text-warning"></i>
@@ -575,7 +566,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>James Turner</p>
+                                        <p>Sophie Turner</p>
                                         <span class="d-flex">
                                             <i class="fas fa-star text-warning"></i>
                                             <i class="fas fa-star text-warning"></i>
@@ -637,10 +628,8 @@
                             Explore your legal rights and how to exercise them effectively.
                         </p>
                         <span class="d-flex align-items-center" data-aos="fade-left">
-                            <div class="rounded-circle d-flex justify-content-center align-items-center  text-white" id="ReadMeIcon">
-                                <i class="fas fa-angle-right"></i>
-                            </div>
-                            &nbsp; 
+                           
+                            
                         </span>
                     </div>
                 </div>
@@ -656,10 +645,8 @@
                             Discover practical advice and resources for maintaining your mental well-being
                         </p>
                         <span class="d-flex align-items-center" data-aos="fade-left">
-                            <div class="rounded-circle d-flex justify-content-center align-items-center  text-white" id="ReadMeIcon">
-                                <i class="fas fa-angle-right"></i>
-                            </div>
-                            &nbsp; 
+                           
+                             
                         </span>
                     </div>
                 </div>
@@ -675,10 +662,8 @@
                             Read inspiring stories of individuals and groups making a difference in their communities.
                         </p>
                         <span class="d-flex align-items-center" data-aos="fade-left">
-                            <div class="rounded-circle d-flex justify-content-center align-items-center  text-white" id="ReadMeIcon">
-                                <i class="fas fa-angle-right"></i>
-                            </div>
-                            &nbsp; 
+                           
+                            
                         </span>
                     </div>
                 </div>
@@ -688,8 +673,9 @@
 </section>
 
 @section Scripts {
-
+    
     <script>
+        // Check for syntax errors
         let currentIndex = 0;
 
         function showSlide(index) {
@@ -702,7 +688,7 @@
             } else {
                 currentIndex = index;
             }
-            carousel.style.transform = translateX(-${ currentIndex * 100} %);
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
         function nextSlide() {
@@ -727,10 +713,6 @@
         })
     </script>
 
-    <!-- jQuery and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 

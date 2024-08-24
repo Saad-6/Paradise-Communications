@@ -31,10 +31,10 @@
         <tr>
             <th>Full Name</th>
             <th>Phone</th>
-            <th>Address</th>
+            <th>Details</th>
             <th>D.O.B</th>
             <th>Submission Date</th>
-            <th>Accident Date (if any)</th>
+
             <th>Lead Token</th>
 
         </tr>
@@ -45,10 +45,10 @@
             <tr>
                 <td>@(medicare.BasicInfo.FirstName + " " + medicare.BasicInfo.LastName)</td>
                 <td>@medicare.BasicInfo.Phone</td>
-                <td>@(medicare.BasicInfo.Address + "," + medicare.BasicInfo.City + "," + medicare.BasicInfo.State)</td>
+                <td>@medicare.BasicInfo.Address</td>
                 <td>@medicare.BasicInfo.DateOfBirth</td>
                 <td>@medicare.BasicInfo.DateOfSubmission</td>
-                <td>@medicare.DateOfAccident</td>
+
                 <td>@medicare.LeadToken.Token</td>
             </tr>
         }

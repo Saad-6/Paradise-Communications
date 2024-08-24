@@ -25,8 +25,8 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="email">Email</label>
-                <input type="email" class="form-control"  asp-for="@Model.BasicInfo.Email" id="email" placeholder="Email">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" required asp-for="@Model.BasicInfo.DateOfBirth" id="dob">
             </div>
             <div class="form-group col-md-6">
                 <label for="phone">Phone</label>
@@ -34,24 +34,16 @@
             </div>
             
         </div>
+       
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="dob">Date of Birth</label>
-                <input type="date" class="form-control" required asp-for="@Model.BasicInfo.DateOfBirth" id="dob">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="carYear">Car Year</label>
-                <input type="text" class="form-control"  asp-for="@Model.CarYear" id="carYear" placeholder="Car Year">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="carMake">Car Make</label>
-                <input type="text" class="form-control"  asp-for="@Model.CarMake" id="carMake" placeholder="Car Make">
-            </div>
+         
             <div class="form-group col-md-6">
                 <label for="carModel">Car Model</label>
-                <input type="text" class="form-control" required asp-for="@Model.CarModel" id="carModel" placeholder="Car Model">
+                <input type="text" class="form-control"  asp-for="@Model.CarModel" id="carModel" placeholder="Car Model">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="insurance">Insurance Details</label>
+                <input type="text" class="form-control" asp-for="@Model.InsuranceCompany" id="insurance" placeholder="Insurance Details">
             </div>
         </div>
         <div class="form-row">
@@ -67,11 +59,12 @@
 
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="insuranceCompany">Insurance Company</label>
-                <input type="text" class="form-control" asp-for="@Model.InsuranceCompany" id="insuranceCompany" placeholder="Insurance Company">
+            <div class="form-group col-md-12">
+                <label for="CarMake" >Additional Details</label>
+                <textarea id="carMake" class="form-control" rows="3" asp-for="BasicInfo.Address"></textarea>
             </div>
-       </div>
+        </div>
+     
         @if (ViewBag.ShowLeadToken)
         {
             <div class="form-row">

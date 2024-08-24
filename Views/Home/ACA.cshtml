@@ -25,25 +25,15 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="email">Email</label>
-                <input type="email" class="form-control"  asp-for="@Model.BasicInfo.Email" id="email" placeholder="Email">
+                <label for="city">City</label>
+                <input type="text" class="form-control" asp-for="@Model.BasicInfo.City" id="city" placeholder="City">
             </div>
             <div class="form-group col-md-6">
                 <label for="phone">Phone</label>
                 <input type="tel" class="form-control" required asp-for="@Model.BasicInfo.Phone" id="phone" placeholder="Phone">
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="address">Address</label>
-                <input type="text" class="form-control"  asp-for="@Model.BasicInfo.Address" id="address" placeholder="Address">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="city">City</label>
-                <input type="text" class="form-control"  asp-for="@Model.BasicInfo.City" id="city" placeholder="City">
-            </div>
-            
-        </div>
+       
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="state">State</label>
@@ -96,4 +86,5 @@
             }
         });
     </script>
+ 
 }

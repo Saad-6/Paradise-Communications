@@ -34,8 +34,8 @@ namespace Paradise.Utilities
                 {
                     adminUser = new SuperUser
                     {
-                        UserName = "superuser@paradisecommunications.com",
-                        Email = "superuser@paradisecommunications.com",
+                        UserName = "admin@paradisecommunications.co",
+                        Email = "admin@paradisecommunications.co",
                         EmailConfirmed = true
                     };
 
