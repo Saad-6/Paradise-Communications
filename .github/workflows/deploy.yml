@@ -27,24 +27,34 @@ jobs:
 
       run: |
         sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
-          # Ensure the target directory exists
-          sudo mkdir -p /var/www/myapp/repo
-          sudo chown -R www-data:www-data /var/www/myapp
+          # Stop the application service to avoid conflicts
+          sudo systemctl stop myapp.service
 
-          # Remove existing content in the repo directory
-          sudo rm -rf /var/www/myapp/repo/*
+          # Ensure the repo directory exists and clear its contents
+          if [ -d "/var/www/myapp/repo" ]; then
+            sudo rm -rf /var/www/myapp/repo/*
+          else
+            sudo mkdir -p /var/www/myapp/repo
+          fi
 
-          # Clone the repository
+          # Clone the repository into the now-empty directory
           git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
 
-          # Publish the application to the target directory
+          # Empty the testpord directory (where the published files are located)
+          if [ -d "/var/www/myapp/testpord" ]; then
+            sudo rm -rf /var/www/myapp/testpord/*
+          else
+            sudo mkdir -p /var/www/myapp/testpord
+          fi
+
+          # Publish the application to the testpord directory
           dotnet publish -c Release -o /var/www/myapp/testpord/
 
           # Update ownership and permissions
           sudo chown -R www-data:www-data /var/www/myapp/testpord
           sudo chmod -R 755 /var/www/myapp/testpord
 
-          # Restart the application service
+          # Reload the systemd manager configuration and restart the application service
           sudo systemctl daemon-reload
-          sudo systemctl restart myapp.service
+          sudo systemctl start myapp.service
         '
