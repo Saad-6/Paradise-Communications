@@ -28,23 +28,48 @@ jobs:
       run: |
         sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
           # Ensure the target directory exists
-          sudo mkdir -p /var/www/myapp/repo
-          sudo chown -R www-data:www-data /var/www/myapp
+          if [ -d "/var/www/myapp/repo" ]; then
+            echo "Removing existing repo directory..."
+            sudo rm -rf /var/www/myapp/repo
+          fi
 
-          # Remove existing content in the repo directory
-          sudo rm -rf /var/www/myapp/repo/*
-
-          # Clone the repository
+          # Clone the repository into the now empty directory
+          echo "Cloning the repository..."
           git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
 
+          # List the files to verify the clone
+          echo "Listing files in /var/www/myapp/repo after cloning:"
+          ls -la /var/www/myapp/repo
+
+          # Navigate to the project directory if needed
+          cd /var/www/myapp/repo
+
+          # Check for the project file
+          if [ ! -f "Paradise.csproj" ]; then
+              echo "Project file not found! Listing files in the current directory:"
+              ls -la
+              exit 1
+          fi
+
+          # Stop the service
+          echo "Stopping the application service..."
+          sudo systemctl stop myapp.service
+
+          # Clear the testpord directory
+          echo "Clearing the testpord directory..."
+          sudo rm -rf /var/www/myapp/testpord/*
+
           # Publish the application to the target directory
-          dotnet publish -c Release -o /var/www/myapp/testpord/
+          echo "Publishing the application..."
+          dotnet publish Paradise.csproj -c Release -o /var/www/myapp/testpord/
 
           # Update ownership and permissions
+          echo "Updating ownership and permissions..."
           sudo chown -R www-data:www-data /var/www/myapp/testpord
           sudo chmod -R 755 /var/www/myapp/testpord
 
-          # Restart the application service
+          # Restart the service
+          echo "Restarting the application service..."
           sudo systemctl daemon-reload
-          sudo systemctl restart myapp.service
+          sudo systemctl start myapp.service
         '
