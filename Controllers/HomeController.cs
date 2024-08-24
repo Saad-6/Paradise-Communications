@@ -3,7 +3,6 @@ using Paradise.Data;
 using Paradise.Models;
 using Paradise.Models.FormModels;
 using Paradise.Services;
-
 namespace Paradise.Controllers
 {
     public class HomeController : Controller
@@ -68,7 +67,7 @@ namespace Paradise.Controllers
         public IActionResult HandleAutoInsuranceForm(AutoInsurance model)
         {
             var email = model.BasicInfo.Email;
-            model.BasicInfo.DateOfSubmission = DateTime.Now;
+            model.BasicInfo.DateOfSubmission = Utilities.Utilities.EasternTime();
             LeadToken leadToken = new LeadToken();
             leadToken.Token = _tokenService.GenerateToken(email);
             leadToken.Email = email;
@@ -85,7 +84,7 @@ namespace Paradise.Controllers
         public IActionResult HandleFinalInsuranceForm(FinalInsurance model)
         {
             var email = model.BasicInfo.Email;
-            model.BasicInfo.DateOfSubmission = DateTime.Now;
+            model.BasicInfo.DateOfSubmission = Utilities.Utilities.EasternTime();
             LeadToken leadToken = new LeadToken();
             leadToken.Token = _tokenService.GenerateToken(email);
             leadToken.Email = email;
@@ -100,7 +99,7 @@ namespace Paradise.Controllers
         public IActionResult HandleACAForm(ACA model)
         {
             var email = model.BasicInfo.Email;
-            model.BasicInfo.DateOfSubmission = DateTime.Now;
+            model.BasicInfo.DateOfSubmission = Utilities.Utilities.EasternTime();
             LeadToken leadToken = new LeadToken();
             leadToken.Token = _tokenService.GenerateToken(email);
             leadToken.Email = email;
@@ -114,7 +113,7 @@ namespace Paradise.Controllers
         public IActionResult HandleMVAForm(MVA model)
         {
             var email = model.BasicInfo.Email;
-            model.BasicInfo.DateOfSubmission = DateTime.Now;
+            model.BasicInfo.DateOfSubmission = Utilities.Utilities.EasternTime();
             LeadToken leadToken = new LeadToken();
             leadToken.Token = _tokenService.GenerateToken(email);
             leadToken.Email = email;
@@ -129,7 +128,7 @@ namespace Paradise.Controllers
         public IActionResult HandleMedicareForm(Medicare model)
         {
             var email = model.BasicInfo.Email;
-            model.BasicInfo.DateOfSubmission = DateTime.Now;
+            model.BasicInfo.DateOfSubmission = Utilities.Utilities.EasternTime();
             LeadToken leadToken = new LeadToken();
             leadToken.Token = _tokenService.GenerateToken(email);
             leadToken.Email = email;

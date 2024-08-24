@@ -25,44 +25,44 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="dob">Date of Birth</label>
-                <input type="date" class="form-control" required asp-for="@Model.BasicInfo.DateOfBirth" id="dob">
-            </div>
-            <div class="form-group col-md-6">
                 <label for="phone">Phone</label>
                 <input type="tel" class="form-control" required asp-for="@Model.BasicInfo.Phone" id="phone" placeholder="Phone">
             </div>
-            
-        </div>
-       
-        <div class="form-row">
-         
-            <div class="form-group col-md-6">
-                <label for="carModel">Car Model</label>
-                <input type="text" class="form-control"  asp-for="@Model.CarModel" id="carModel" placeholder="Car Model">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="insurance">Insurance Details</label>
-                <input type="text" class="form-control" asp-for="@Model.InsuranceCompany" id="insurance" placeholder="Insurance Details">
-            </div>
-        </div>
-        <div class="form-row">
-          
             <div class="form-group col-md-6">
                 <label for="city">City</label>
-                <input type="text" class="form-control"  asp-for="@Model.BasicInfo.City" id="city" placeholder="City">
+                <input type="text" class="form-control" asp-for="@Model.BasicInfo.City" id="city" placeholder="City">
             </div>
+          
+         
+        </div>
+       
+
+        <div class="form-row">
+          
+           
             <div class="form-group col-md-6">
                 <label for="state">State</label>
                 <input type="text" class="form-control" required asp-for="@Model.BasicInfo.State" id="state" placeholder="State">
             </div>
+            <div class="form-group col-md-6">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" class="form-control" required asp-for="@Model.BasicInfo.ZipCode" id="zipcode" placeholder="Zip Code">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" required asp-for="@Model.BasicInfo.DateOfBirth" id="dob">
+            </div>
 
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="CarMake" >Additional Details</label>
-                <textarea id="carMake" class="form-control" rows="3" asp-for="BasicInfo.Address"></textarea>
+          
+            <div class="form-group col-md-6">
+                <label for="CarMake" >Car Details</label>
+                <textarea id="carMake" class="form-control" rows="3"placeholder="Car Details..." asp-for="BasicInfo.Address"></textarea>
             </div>
+      
         </div>
      
         @if (ViewBag.ShowLeadToken)

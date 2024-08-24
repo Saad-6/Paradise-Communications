@@ -14,7 +14,17 @@ namespace Paradise.Utilities
             { "MVA", typeof(MVA) },
             { "ACA", typeof(ACA) }
         };
+        public static DateTime EasternTime()
+        {
+            DateTime utcNow = DateTime.UtcNow;
 
+            // Step 2: Define the desired US time zone
+            TimeZoneInfo usTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"); // Replace with desired US time zone
+
+            // Step 3: Convert the UTC time to the desired US time zone
+            DateTime usTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, usTimeZone);
+            return usTime;
+        }
         public static async Task SeedAdminUserAsync(WebApplication app)
         {
             using (var scope = app.Services.CreateScope())
