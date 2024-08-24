@@ -67,7 +67,9 @@ namespace Paradise.Controllers
         public IActionResult HandleAutoInsuranceForm(AutoInsurance model)
         {
             var email = model.BasicInfo.Email;
+
             model.BasicInfo.DateOfSubmission = Utilities.Utilities.EasternTime();
+
             LeadToken leadToken = new LeadToken();
             leadToken.Token = _tokenService.GenerateToken(email);
             leadToken.Email = email;
