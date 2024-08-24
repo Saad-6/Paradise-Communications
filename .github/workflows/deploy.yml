@@ -16,7 +16,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0.x'  # This ensures that .NET 8 is used
+        dotnet-version: '8.0.x'  # Ensure .NET 8 is used
 
     - name: Install sshpass
       run: sudo apt-get install -y sshpass
@@ -24,10 +24,27 @@ jobs:
     - name: Deploy to server
       env:
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+
       run: |
         sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
-          cd /root/myapp/Paradise-Prod/ &&
-          git pull origin main &&
-          dotnet publish -c Release -o /root/myapp/Paradise-Prod/ &&
+          # Ensure the target directory exists
+          sudo mkdir -p /var/www/myapp/repo
+          sudo chown -R www-data:www-data /var/www/myapp
+
+          # Remove existing content in the repo directory
+          sudo rm -rf /var/www/myapp/repo/*
+
+          # Clone the repository
+          git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
+
+          # Publish the application to the target directory
+          dotnet publish -c Release -o /var/www/myapp/testpord/
+
+          # Update ownership and permissions
+          sudo chown -R www-data:www-data /var/www/myapp/testpord
+          sudo chmod -R 755 /var/www/myapp/testpord
+
+          # Restart the application service
+          sudo systemctl daemon-reload
           sudo systemctl restart myapp.service
         '
