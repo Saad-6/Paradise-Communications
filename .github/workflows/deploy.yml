@@ -27,20 +27,25 @@ jobs:
 
       run: |
         sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
-          # Clone the repository if not already cloned
-          if [ ! -d "/root/myapp/repo" ]; then
-            git clone https://github.com/Saad-6/Paradise-Communications.git /root/myapp/repo
+          # Ensure the target directory exists
+          sudo mkdir -p /var/www/myapp/repo
+          sudo chown -R www-data:www-data /var/www/myapp
+
+          # Clone or update the repository
+          if [ ! -d "/var/www/myapp/repo" ]; then
+            git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
+          else
+            cd /var/www/myapp/repo && git pull origin main
           fi
 
-          # Navigate to the repository directory
-          cd /root/myapp/repo
-
-          # Pull the latest changes from the repository
-          git pull origin main
-
           # Publish the application to the target directory
-          dotnet publish -c Release -o /root/myapp/Paradise-Prod/
+          dotnet publish -c Release -o /var/www/myapp/testpord/
+
+          # Update ownership and permissions
+          sudo chown -R www-data:www-data /var/www/myapp/testpord
+          sudo chmod -R 755 /var/www/myapp/testpord
 
           # Restart the application service
+          sudo systemctl daemon-reload
           sudo systemctl restart myapp.service
         '
