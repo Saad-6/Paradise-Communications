@@ -1,69 +1,40 @@
-name: Deploy to Server
+sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
+  # Ensure the target directory exists
+  if [ -d "/var/www/myapp/repo" ]; then
+    sudo rm -rf /var/www/myapp/repo
+  fi
 
-on:
-  push:
-    branches:
-      - main
+  # Clone the repository into the now empty directory
+  git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  # List the files to verify the clone
+  echo "Listing files in /var/www/myapp/repo after cloning:"
+  ls -la /var/www/myapp/repo
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+  # Navigate to the project directory if needed
+  cd /var/www/myapp/repo
 
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0.x'  # Ensure .NET 8 is used
+  # Check for the project file
+  if [ ! -f "Paradise.csproj" ]; then
+      echo "Project file not found! Listing files in the current directory:"
+      ls -la
+      exit 1
+  fi
 
-    - name: Install sshpass
-      run: sudo apt-get install -y sshpass
+  # Stop the service
+  sudo systemctl stop myapp.service
 
-    - name: Deploy to server
-      env:
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+  # Clear the testpord directory
+  sudo rm -rf /var/www/myapp/testpord/*
 
-      run: |
-        sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
-          # Stop the application service to avoid conflicts
-          sudo systemctl stop myapp.service
+  # Publish the application to the target directory
+  dotnet publish Paradise.csproj -c Release -o /var/www/myapp/testpord/
 
-          # Ensure the repo directory exists and clear its contents
-          if [ -d "/var/www/myapp/repo" ]; then
-            sudo rm -rf /var/www/myapp/repo/*
-          else
-            sudo mkdir -p /var/www/myapp/repo
-          fi
+  # Update ownership and permissions
+  sudo chown -R www-data:www-data /var/www/myapp/testpord
+  sudo chmod -R 755 /var/www/myapp/testpord
 
-          # Clone the repository into the now-empty directory
-          git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
-
-          # Navigate to the directory containing the project file
-          cd /var/www/myapp/repo
-
-          # Check if the Paradise.csproj file exists
-          if [ ! -f "Paradise.csproj" ]; then
-            echo "Project file not found!"
-            exit 1
-          fi
-
-          # Empty the testpord directory (where the published files are located)
-          if [ -d "/var/www/myapp/testpord" ]; then
-            sudo rm -rf /var/www/myapp/testpord/*
-          else
-            sudo mkdir -p /var/www/myapp/testpord
-          fi
-
-          # Publish the application to the testpord directory, specifying the .csproj file
-          dotnet publish Paradise.csproj -c Release -o /var/www/myapp/testpord/
-
-          # Update ownership and permissions
-          sudo chown -R www-data:www-data /var/www/myapp/testpord
-          sudo chmod -R 755 /var/www/myapp/testpord
-
-          # Reload the systemd manager configuration and restart the application service
-          sudo systemctl daemon-reload
-          sudo systemctl start myapp.service
-        '
+  # Restart the service
+  sudo systemctl daemon-reload
+  sudo systemctl start myapp.service
+'
