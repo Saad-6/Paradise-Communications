@@ -24,10 +24,9 @@ jobs:
     - name: Deploy to server
       env:
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-        SSH_HOST: ${{ secrets.SSH_HOST }}
-        SSH_USER: ${{ secrets.SSH_USER }}
+
       run: |
-        sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST '
+        sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no root@38.242.246.113 '
           # Clone the repository if not already cloned
           if [ ! -d "/root/myapp/repo" ]; then
             git clone https://github.com/Saad-6/Paradise-Communications.git /root/myapp/repo
