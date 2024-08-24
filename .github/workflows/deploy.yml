@@ -43,6 +43,12 @@ jobs:
           # Navigate to the directory containing the project file
           cd /var/www/myapp/repo
 
+          # Check if the Paradise.csproj file exists
+          if [ ! -f "Paradise.csproj" ]; then
+            echo "Project file not found!"
+            exit 1
+          fi
+
           # Empty the testpord directory (where the published files are located)
           if [ -d "/var/www/myapp/testpord" ]; then
             sudo rm -rf /var/www/myapp/testpord/*
