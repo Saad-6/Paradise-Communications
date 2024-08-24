@@ -295,8 +295,14 @@ namespace Paradise.Areas.Admin.Controllers
         {
             if (!string.IsNullOrEmpty(name))
             {
-                query = query.Where(m => EF.Property<string>(EF.Property<object>(m, "BasicInfo"), "FirstName").Contains(name) ||
-                                          EF.Property<string>(EF.Property<object>(m, "BasicInfo"), "LastName").Contains(name));
+                var nameParts = name.Split(new[] { ' ' }, 2, StringSplitOptions.RemoveEmptyEntries);
+                var firstName = nameParts.Length > 0 ? nameParts[0] : null;
+                var lastName = nameParts.Length > 1 ? nameParts[1] : null;
+                // Apply the filter
+                query = query.Where(m =>
+                    (string.IsNullOrEmpty(firstName) || EF.Property<string>(EF.Property<object>(m, "BasicInfo"), "FirstName").Contains(firstName) || EF.Property<string>(EF.Property<object>(m, "BasicInfo"), "LastName").Contains(firstName)) &&
+                    (string.IsNullOrEmpty(lastName) || EF.Property<string>(EF.Property<object>(m, "BasicInfo"), "LastName").Contains(lastName))
+                );
             }
             if (dos != default(DateTime))
             {
