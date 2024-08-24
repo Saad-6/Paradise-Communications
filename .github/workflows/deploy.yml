@@ -40,6 +40,9 @@ jobs:
           # Clone the repository into the now-empty directory
           git clone https://github.com/Saad-6/Paradise-Communications.git /var/www/myapp/repo
 
+          # Navigate to the directory containing the project file
+          cd /var/www/myapp/repo
+
           # Empty the testpord directory (where the published files are located)
           if [ -d "/var/www/myapp/testpord" ]; then
             sudo rm -rf /var/www/myapp/testpord/*
@@ -47,8 +50,8 @@ jobs:
             sudo mkdir -p /var/www/myapp/testpord
           fi
 
-          # Publish the application to the testpord directory
-          dotnet publish -c Release -o /var/www/myapp/testpord/
+          # Publish the application to the testpord directory, specifying the .csproj file
+          dotnet publish Paradise.csproj -c Release -o /var/www/myapp/testpord/
 
           # Update ownership and permissions
           sudo chown -R www-data:www-data /var/www/myapp/testpord
