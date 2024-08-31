@@ -34,13 +34,13 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate();
-}
-//// Seeding Admin User
-await Utilities.SeedAdminUserAsync(app);
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+//    dbContext.Database.Migrate();
+//}
+////// Seeding Admin User
+//await Utilities.SeedAdminUserAsync(app);
 
 if (!app.Environment.IsDevelopment())
 {
